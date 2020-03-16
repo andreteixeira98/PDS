@@ -7,6 +7,18 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 public class JogoDaForca {
+	public static Scanner lerDoTeclado = new Scanner(System.in);;
+	public static boolean boneco[];
+	public static ArrayList<String> palavras;
+	public static String palavraSorteada;
+	public static char resposta[];
+	public static ArrayList<Character> letrasChutadas;
+	public static char letraChutada;
+	public static boolean alterouResposta;
+	public static boolean letraJaChutada;
+	public static int contErros;
+	public static char op;
+	
 	public static ArrayList<String> obterPalavras() throws IOException {
 		File file = new File("src/files/timesDeFutebol.txt");
 		FileReader fr = new FileReader(file);
@@ -60,6 +72,11 @@ public class JogoDaForca {
 		System.out.println("|");
 		System.out.println("|");
 	}
+	public static void menuInicial() {
+		System.out.println("Escolha uma opção:");
+		System.out.println("1 - Iniciar Novo Jogo");
+		System.out.println("0 - Sair");
+	}
 	public static boolean completouBoneco(boolean boneco[]) {
 		for(int i = 0; i < boneco.length; i++)
 			if(!boneco[i]) return false;
@@ -71,18 +88,17 @@ public class JogoDaForca {
 				return false;
 		}return true;
 	}
-	public static void main(String[] args) throws IOException {
-		Scanner lerDoTeclado = new Scanner(System.in);
-		boolean boneco[] = criarBoneco();
-		ArrayList<String> palavras = obterPalavras();
-		String palavraSorteada = sortearPalavra(palavras);
-		char resposta[] = initResposta(palavraSorteada.length());
-		ArrayList<Character> letrasChutadas = new ArrayList<Character>();
-		char letraChutada;
-		boolean alterouResposta = false;
-		boolean letraJaChutada = false;
-		int contErros = 0;
-		boolean iniciarJogo = false;
+	public static void iniciarJogo() throws IOException {
+		boneco = criarBoneco();
+		ArrayList<String> palavras = JogoDaForca.obterPalavras();
+		palavraSorteada = sortearPalavra(palavras);
+		resposta = initResposta(palavraSorteada.length());
+		letrasChutadas = new ArrayList<Character>();
+		letraChutada = 0;
+		alterouResposta = false;
+		letraJaChutada = false;
+		contErros = 0;
+		op = '1';
 		
 		System.out.println("Dica: um time de futebol com "+ palavraSorteada.length() + " letras");
 		while(true) {
@@ -120,6 +136,25 @@ public class JogoDaForca {
 				//reiniciarJogo();
 				break;
 			}	
-		}lerDoTeclado.close();
+		}
+	}
+	public static void main(String[] args) throws IOException {
+		
+		do {
+			menuInicial();
+			op = lerDoTeclado.nextLine().charAt(0);//warning
+			
+			switch (op) {
+			case '1':
+				iniciarJogo();
+				break;
+			case '0':
+				System.exit(0);
+			default:
+				System.out.println("Opção Inválida");
+				break;
+			}
+		}while(op != '0');
+		lerDoTeclado.close();
 	}
 }
