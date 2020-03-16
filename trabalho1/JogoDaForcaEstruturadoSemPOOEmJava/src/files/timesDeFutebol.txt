@@ -4,7 +4,7 @@ chelsea
 barcelona
 real madrid
 atletico mineiro
-coimbraer
+coimbra
 manchester city
 manchest united
 leicester
@@ -24,3 +24,4 @@ botafogo
 fluminense
 wolverhampton
 chapecoense
+bahia
