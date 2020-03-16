@@ -6,7 +6,7 @@ real madrid
 atletico mineiro
 coimbra
 manchester city
-manchest united
+manchester united
 leicester
 celtic
 bayer munich
@@ -25,3 +25,6 @@ fluminense
 wolverhampton
 chapecoense
 bahia
+inter de milan
+juventus
+portuguesa
