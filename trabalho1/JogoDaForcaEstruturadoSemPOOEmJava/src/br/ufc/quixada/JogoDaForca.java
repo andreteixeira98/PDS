@@ -76,6 +76,7 @@ public class JogoDaForca {
 		int contErros = 0;
 		
 		char letra;
+		System.out.println("Dica: um time de futebol com "+ palavraSorteada.length() + " letras");
 		while(true) {
 			desenharCenario(boneco);
 			System.out.println();
