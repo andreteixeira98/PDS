@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 public class JogoDaForca {
-	public static Scanner lerDoTeclado = new Scanner(System.in);;
+	public static Scanner lerDoTeclado = new Scanner(System.in);
 	public static boolean boneco[];
 	public static ArrayList<String> palavras;
 	public static String palavraSorteada;
@@ -20,7 +20,7 @@ public class JogoDaForca {
 	public static char op;
 	
 	public static ArrayList<String> obterPalavras() throws IOException {
-		File file = new File("src/files/timesDeFutebol.txt");
+		File file = new File("src/files/timesdefutebol.txt");
 		FileReader fr = new FileReader(file);
 		ArrayList<String> palavras = new ArrayList<String>();
 		BufferedReader br = new BufferedReader(fr);
